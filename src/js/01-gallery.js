@@ -25,16 +25,7 @@ function createGallery() {
   }
 createGallery();
 
-gallery.addEventListener("click", galleryModal)
-
-function galleryModal(event) {
-    event.preventDefault();
-    if (event.target.tagName !== "IMG")
-    {return};
-    
-    const target = event.target.dataset.source;
-    event.target.src = target;
-    const instance = basicLightbox.create(`<img src=${target}>`)
-    instance.show(() => console.log(`Voilà!`))
-    
-}
+new SimpleLightbox('.gallery a', {
+    captionDelay: 250,
+    captionsData: 'alt',
+  });
